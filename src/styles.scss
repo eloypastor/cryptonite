@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/purple-green.css';
+
+html, body {
+  height: 100%;
+  color: white;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #333;
+  background: linear-gradient(159deg, #333333 0%, #462d50 70%, #4b2c58 80%, #572f68 90%, #5c2374 100%);
+}
+
+.center-container {
+  margin: 32px auto;
+  max-width: 458px;
+  text-align: initial;
+}
+
