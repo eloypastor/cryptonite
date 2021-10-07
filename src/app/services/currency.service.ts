@@ -4,6 +4,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of, throwError } from 'rxjs';
 import { GetCurrencyResponse, Currency } from '../model';
 import { LogService } from '../shared/services/log.service';
+import { environment } from '../../environments/environment';
 
 import { from } from 'rxjs';
 
@@ -11,7 +12,7 @@ import { from } from 'rxjs';
 export class CurrencyService {
 
   //readonly API_ENDPOINT: string = 'https://sheltered-cliffs-34052.herokuapp.com/api/currency';
-  readonly API_ENDPOINT: string = '/api/currency';
+  readonly API_ENDPOINT: string = `${environment.apiUrl}/api/currency`;
 
   public currencies: Currency[] = [];
 
