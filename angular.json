@@ -22,7 +22,7 @@
           "options": {
             "outputPath": "docs",
             "deleteOutputPath": true,
-            "crossOrigin": "use-credentials",
+            "crossOrigin": "anonymous",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
