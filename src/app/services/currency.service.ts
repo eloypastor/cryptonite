@@ -18,6 +18,7 @@ export class CurrencyService {
 
   constructor(private httpClient: HttpClient, private logger: LogService) {
 
+    console.log(this.API_ENDPOINT);
     // get all currencies from server
     this.getCurrencies();
 
