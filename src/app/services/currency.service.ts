@@ -54,7 +54,7 @@ export class CurrencyService {
       .pipe(
         map( resp => Currency.fromJSON(resp)),
         catchError(this.handleError)
-      );
+      ).toPromise();
   }
 
   /** Create new currency */
@@ -105,7 +105,7 @@ export class CurrencyService {
       acronym: acronym
     };
 
-    return this.httpClient.put(`/api/currency/${id}`, JSON.stringify(currency), httpOptions)
+    return this.httpClient.put(`${this.API_ENDPOINT}/${id}`, JSON.stringify(currency), httpOptions)
     .pipe(
       catchError(this.handleError)
     ).subscribe( res => {

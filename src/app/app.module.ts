@@ -13,6 +13,12 @@ import { CurrencyService } from './services/currency.service';
 import { CurrencyListComponent, DialogConfirmDeleteCurrencyDialog, DialogNewCurrencyDialog } from './components/currency/currency-list.component';
 import { FormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DialogConfirmDeletePortfolioDialog, DialogNewPortfolioDialog, DialogNewPortfolioLineDialog, PortfolioListComponent } from './components/portfolio-list/portfolio-list.component';
+import { PortfolioService } from './services/portfolio.service';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+
+registerLocaleData(localeEs, 'es');
 
 
 
@@ -22,7 +28,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CurrencyListComponent,
     DialogConfirmDeleteCurrencyDialog,
     DialogNewCurrencyDialog,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PortfolioListComponent,
+    DialogConfirmDeletePortfolioDialog,
+    DialogNewPortfolioDialog,
+    DialogNewPortfolioLineDialog
   ],
   imports: [
     MaterialModule,
@@ -34,7 +44,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   providers: [
     LogService,
-    CurrencyService
+    CurrencyService,
+    PortfolioService
   ],
   bootstrap: [AppComponent]
 })

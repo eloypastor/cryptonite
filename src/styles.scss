@@ -15,7 +15,33 @@ body {
 
 .center-container {
   margin: 32px auto;
-  max-width: 458px;
+  /*max-width: 458px;*/
   text-align: initial;
+}
+
+.accordion-headers-align .mat-expansion-panel-header-title,
+.accordion-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+  align-items: center;
+}
+
+.accordion-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.mat-action-row {
+  justify-content: flex-start;
+}
+
+.fab {
+  position: fixed !important;
+  bottom: 32px;
+  right: 32px;
+  z-index: 999;
 }
 

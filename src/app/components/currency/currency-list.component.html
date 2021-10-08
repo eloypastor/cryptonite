@@ -1,37 +1,32 @@
 <div class="center-container">
-  <div class="list-container">
+  <mat-accordion class="accordion-headers-align">
+    <mat-expansion-panel *ngFor="let currency of currencies">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{currency.acronym}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{currency.name}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
 
-    <button mat-fab class="add-currency" (click)="newCurrency()">
-      <mat-icon>add</mat-icon>
-    </button>
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>Acronym</mat-label>
+        <input #acronym matInput [ngModel]="currency.acronym" name="acronym">
+      </mat-form-field>
 
-    <mat-accordion class="accordion-headers-align">
-      <mat-expansion-panel *ngFor="let currency of currencies" >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{currency.acronym}}
-          </mat-panel-title>
-          <mat-panel-description>
-            {{currency.name}}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>Name</mat-label>
+        <input #name matInput [ngModel]="currency.name" name="name">
+      </mat-form-field>
+      <mat-action-row>
+        <button mat-button color="accent" (click)="update(currency.id, name.value, acronym.value)">Save</button>
+        <button mat-button color="accent" (click)="tryDelete(currency)">Delete</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
 
-        <mat-form-field appearance="outline" color="accent">
-          <mat-label>Acronym</mat-label>
-          <input #acronym matInput [ngModel]="currency.acronym" name="acronym">
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" color="accent">
-          <mat-label>Name</mat-label>
-          <input #name matInput [ngModel]="currency.name" name="name">
-        </mat-form-field>
-        <mat-action-row>
-          <button mat-button color="accent" (click)="update(currency.id, name.value, acronym.value)">Save</button>
-          <button mat-button color="accent" (click)="tryDelete(currency)">Delete</button>
-        </mat-action-row>
-      </mat-expansion-panel>
-    </mat-accordion>
-
-  </div>
-
+  <button mat-fab class="fab" (click)="newCurrency()">
+    <mat-icon>add</mat-icon>
+  </button>
 </div>

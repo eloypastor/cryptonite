@@ -3,7 +3,10 @@
     "target": "https://sheltered-cliffs-34052.herokuapp.com/",
     "secure": true,
     "logLevel": "debug",
-    "changeOrigin": true
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "/api"
+    }
 
   }
 }

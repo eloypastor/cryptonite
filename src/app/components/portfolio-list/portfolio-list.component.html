@@ -1,0 +1,66 @@
+<div class="center-container">
+
+  <h3>La cantidad total de su cartera es</h3>
+  <h1>{{this.portfolioService.total |  currency:'EUR':'symbol':'1.2-2':'es' }}</h1>
+
+  <button mat-fab class="fab" (click)="newPortfolio()">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <mat-accordion class="accordion-headers-align" >
+    <mat-expansion-panel *ngFor="let portfolio of portfolios">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{portfolio.name}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{portfolio.euros | currency:'EUR':'symbol':'1.2-2':'es' }}
+
+          <div>
+            <button mat-icon-button aria-label="Edit portfolio" (click)="editPortfolio($event)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Delete portfolio" (click)="tryDeletePortfolio($event, portfolio)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <!-- <mat-form-field appearance="outline" color="accent">
+        <mat-label>Name</mat-label>
+        <input #name matInput [ngModel]="portfolio.name" name="name">
+      </mat-form-field> -->
+
+      <mat-list>
+        <mat-list-item *ngFor="let line of portfolio.lines">
+          <div mat-line>
+            {{line.amount}} {{line.currency?.acronym}}
+          </div>
+          <div mat-line>
+            {{line.euros | currency:'EUR':'symbol':'1.2-2':'es' }}
+            <div class="button-container">
+              <button mat-icon-button aria-label="Edit line">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button aria-label="Delete line">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+
+      <mat-action-row>
+        <button mat-button color="accent" (click)="newPortfolioLine(portfolio)">Add line</button>
+      </mat-action-row>
+
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+
+</div>

@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>New portfolio</h1>
+
+<form #f="ngForm">
+
+  <mat-form-field appearance="outline" color="accent">
+    <mat-label>Amount</mat-label>
+    <input type="number" #amountInput="ngModel" ngModel matInput name="amount" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" color="accent">
+    <mat-label>Select a currency</mat-label>
+    <mat-select #currencyInput="ngModel" ngModel name="currency" required>
+      <mat-option *ngFor="let currency of this.currencyService.currencies" [value]="currency.id">{{currency.acronym}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="{currency: currencyInput.value, amount: amountInput.value}" [disabled]="!f.valid">Save</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+  </mat-dialog-actions>
+</form>
+
+
