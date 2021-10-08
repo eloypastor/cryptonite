@@ -2,11 +2,9 @@
 
 ## Clone repository
 
-Run `mkdir cryptonite`
+Run `git clone https://github.com/eloypastor/cryptonite.git`
 
 Run `cd cryptonite`
-
-Run `git clone https://github.com/eloypastor/cryptonite.git`
 
 ## Development server
 
